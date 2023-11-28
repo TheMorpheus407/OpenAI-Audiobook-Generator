@@ -1,5 +1,7 @@
 document.getElementById('generate-audiobook').addEventListener('click', generateAudiobook);
 
+console.log("Version 0.9.1");
+
 async function mergeAudioBlobsAndDownload(audioBlobs) {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const buffers = [];
