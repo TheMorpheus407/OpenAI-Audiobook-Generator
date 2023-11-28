@@ -86,17 +86,34 @@ function generateAudiobook() {
     progressBar.max = segments.length;
     progressBar.value = 0;
 
-    segments.forEach((segment, index) => {
+    // Queue for segment processing
+    var queue = segments.slice(); // Clone the segments array
+    var rateLimitPerMinute = 50;
+    var delayBetweenCalls = 60000 / rateLimitPerMinute; // Delay in ms
+
+    function processQueue() {
+        if (queue.length === 0) return; // Stop if the queue is empty
+
+        var index = segments.length - queue.length;
+        var segment = queue.shift(); // Get the next segment from the queue
+
         callOpenAIAPI(segment, apiKey, function (audioBlob) {
             audioBlobs[index] = audioBlob;
             progressBar.value = audioBlobs.filter(Boolean).length;
-            if (audioBlobs.length === segments.length) {
+
+            if (audioBlobs.filter(Boolean).length === segments.length) {
                 // All segments are loaded, merge them!
                 mergeAudioBlobsAndDownload(audioBlobs);
+            } else {
+                setTimeout(processQueue, delayBetweenCalls); // Process the next segment after a delay
             }
         });
-    });
+    }
+
+    // Start processing the queue
+    processQueue();
 }
+
 
 function splitTextIntoSegments(text, maxLength) {
     var segments = [];
