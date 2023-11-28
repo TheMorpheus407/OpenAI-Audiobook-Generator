@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Audiobook Generator
+    </title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Example Key for test usage:  -->
+<!-- Example data: eins. zwei. drei. vier. fünf. sechs. sieben. acht. neun. zehn. -->
+<!-- Header Section -->
+<header>
+    <h1>Text-to-Audio Converter</h1>
+</header>
+
+<!-- API Key Input Section -->
+<div id="api-key-section">
+    <label for="api-key">Enter OpenAI API Key:</label>
+    <input type="text" id="api-key" name="api-key">
+</div>
+
+<!-- File Upload and Text Input Section -->
+<div id="input-section">
+    <input type="file" id="file-upload" name="file-upload">
+    <label for="file-upload">Upload .txt or .ePub File OR enter some text</label>
+    <textarea id="text-input" name="text-input" rows="10" cols="50" placeholder="Paste or type text here"></textarea>
+</div>
+
+<!-- Cost Estimation Section -->
+<div id="cost-estimation">
+    <p id="cost-estimate-display">Estimated Cost for Conversion: $X.XX</p>
+</div>
+
+<!-- Audiobook Generation Section -->
+<div id="generate-section">
+    <button id="generate-audiobook">Generate Audiobook</button>
+</div>
+
+<!-- Progress Indicator (Hidden Initially) -->
+<div id="progress-indicator" style="display: none;">
+    <p>Converting...</p>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <p>Get your OpenAI API Key <a href="https://platform.openai.com/api-keys">here</a>.</p>
+    <p id="status">This will take some time... Make sure to not interrupt the process!</p>
+    <p>Step 1: Creating TTS: <progress id="progressbar1" value="0" max="0"></progress></p>
+    <p>Step 2: Creating your file: <progress id="progressbar2" value="0" max="0"></progress></p>
+</footer>
+
+
+<script src="jszip.min.js"></script>
+<script src="audiobuffer-to-wav.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

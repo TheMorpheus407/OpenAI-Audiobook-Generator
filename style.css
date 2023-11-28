@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#api-key-section, #input-section, #cost-estimation, #generate-section {
+    margin-bottom: 20px;
+}
+
+#api-key-section input, #text-input, #file-upload {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#api-key-section button, #generate-audiobook {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#api-key-section button:hover, #generate-audiobook:hover {
+    background-color: #0056b3;
+}
+
+#cost-estimate-display {
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2; /* Light gray background for the footer */
+    border-top: 1px solid #e0e0e0; /* A subtle top border */
+}
+
+footer p {
+    margin: 10px 0; /* Spacing around text */
+}
+
+progress {
+    width: 100%; /* Full width of the container */
+    height: 20px; /* Taller progress bars */
+    -webkit-appearance: none; /* Removes default styling on WebKit browsers */
+    appearance: none; /* Removes default styling */
+    color: #4caf50; /* Color of the progress bar */
+}
+
+/* Style for the progress bar's value */
+progress::-webkit-progress-value {
+    background-color: #4caf50; /* Green color */
+}
+
+/* Style for the progress bar's background */
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0; /* Light gray background */
+}
+
+/* For other non-WebKit browsers */
+progress::-moz-progress-bar {
+    background-color: #4caf50; /* Green color */
+}
+
+progress::-ms-fill {
+    border: none; /* Removes border */
+    background-color: #4caf50; /* Green color */
+}
+
+
