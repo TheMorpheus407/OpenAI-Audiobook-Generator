@@ -148,8 +148,10 @@ function callOpenAIAPI(segment, apiKey, callback) {
         if (xhr.status === 200) {
             var audioBlob = xhr.response;
             callback(audioBlob);
+			document.getElementById('error-indicator').style.display = 'none';
         } else {
             console.error("Error calling OpenAI API: " + xhr.statusText);
+			document.getElementById('error-indicator').style.display = 'block';
         }
     };
 
