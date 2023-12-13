@@ -85,6 +85,7 @@ function generateAudiobook() {
     var segments = splitTextIntoSegments(text, 4000);
     var audioBlobs = new Array(segments.length);
     var progressBar = document.getElementById('progressbar1');
+	document.getElementById('error-indicator').style.display = 'none';
     progressBar.max = segments.length;
     progressBar.value = 0;
 
@@ -148,7 +149,6 @@ function callOpenAIAPI(segment, apiKey, callback) {
         if (xhr.status === 200) {
             var audioBlob = xhr.response;
             callback(audioBlob);
-			document.getElementById('error-indicator').style.display = 'none';
         } else {
             console.error("Error calling OpenAI API: " + xhr.statusText);
 			document.getElementById('error-indicator').style.display = 'block';
