@@ -161,7 +161,7 @@ function callOpenAIAPI(segment, apiKey, callback) {
     var data = JSON.stringify({
         "model": "tts-1",
         "input": segment,
-        "voice": "nova"
+        "voice": document.getElementById("voice").value
     });
     xhr.send(data);
 }
